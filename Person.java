@@ -1,4 +1,4 @@
-public class Person
+public class Person implements Comparable<Person>
 {
 	/***** TODO: (Part 2) create helper inner class for Identity*****/
 
@@ -71,15 +71,25 @@ public class Person
 	@Override
 	public boolean equals(Object other) 
 	{
-		if(other == null || (!(other instanceof Person))) {
-		      return false;
+		if (other == null || (!(other instanceof Person))) {
+			return false;
 		}
-		
+
 		Person otherPerson = (Person) other;
-		return this.name.equals(otherPerson.name) && this.story.equals(otherPerson.story) &&
-			this.privilege == otherPerson.privilege;	
+		return this.name.equals(otherPerson.name) && this.story.equals(otherPerson.story) && this.privilege == otherPerson.privilege;	
 	}
 
 	// INTERFACE METHODS
 	/***** TODO: (Part 1) override compareTo method to implement Comparable interface*****/
+	public int compareTo(Person other) {
+		if (this.privilege < other.privilege) {
+			return -1;
+		}
+		else if (this.privilege > other.privilege) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
 }
