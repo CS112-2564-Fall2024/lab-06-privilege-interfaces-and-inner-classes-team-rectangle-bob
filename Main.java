@@ -34,10 +34,14 @@ public class Main
 	public static void main(String[] args)
 	{
 		// DECLARATION + INITIALIZATION
-		Person p1 = new Person("Amira", "I am a Syrian refugee.", 40);
-		Person p2 = new Person("D'Andra", "I am an African-American trans woman.", -20);
-		Person p3 = new Person("Jennifer", "I am a New Yorker", 140);
-		Person p4 = new Person("Pete", "I am a guy from Pennsylvania", 200);
+		Person.Identity i1 = new Person.Identity("she/her", "I am a Syrian refugee.");
+		Person.Identity i2 = new Person.Identity("they/them", "I am an African-American trans woman.");
+		Person.Identity i3 = new Person.Identity("she/her", "I am a New Yorker");
+		Person.Identity i4 = new Person.Identity("he/him", "I am a guy from Pennsylvania");
+		Person p1 = new Person("Amira", i1, 40);
+		Person p2 = new Person("D'Andra", i2, -20);
+		Person p3 = new Person("Jennifer", i3, 140);
+		Person p4 = new Person("Pete", i4, 200);
 		Person self = new Person();
 		Person[] people = {p1, p2, p3, p4, self};
 		boolean done = false;
@@ -110,7 +114,8 @@ public class Main
 	/***** TODO: (Part 2) upgrade method to ask user for pronouns and background info *****/
 	public static void fillInfo(Person person){
 		//sets default privilege prior to questionnaire to 100
-		String name, story;
+		String name;
+		Identity story = new Identity;
 		
 		System.out.println("What is your name? ");
 		name = keyboard.nextLine();
